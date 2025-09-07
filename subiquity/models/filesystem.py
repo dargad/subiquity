@@ -2455,6 +2455,7 @@ class FilesystemModel:
     def should_add_swapfile(self):
         mount = self._mount_for_path("/")
         if mount is not None:
+            log.debug("Check if _fs initialized: mount(%s).device(%s).volume(%s)._fs.(%s).fstype", mount, mount.device, mount.device.volume, mount.device.volume._fs)
             if not can_use_swapfile("/", mount.device.volume._fs.fstype):
                 return False
         for swap in self._all(type="format", fstype="swap"):
