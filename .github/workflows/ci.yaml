@@ -23,9 +23,6 @@ jobs:
       run: |
         sudo ./scripts/github-ci-lxd-setup.sh
         sudo ./scripts/test-in-lxd.sh ${{ matrix.image }} "make check"
-    - uses: actions/upload-artifact@v4
-      name: upload error log
-      path: install-logs/**/crash/*
 
   lint:
     runs-on: ubuntu-24.04
